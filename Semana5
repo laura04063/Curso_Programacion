@@ -1,0 +1,85 @@
+# ---------------- PRACTICA 01 -----------------------
+#Ejercicio 1 
+# Cree un programa que itere e imprima los valores de dos 
+# listas del mismo tamaño al mismo tiempo.
+first_list = [1,2,3,4,5,6,7,8,9,10]
+second_list = [11,12,13,14,15,16,17,18,19,20]
+for index in range(0, len(first_list)):
+	print (first_list[index], second_list[index])
+	
+#Ejercicio 2 
+# Cree un programa que itere e imprima un string letra por 
+# letra de derecha a izquierda.
+nombre = "Maria Laura"
+for string in reversed(nombre): 
+	print (string)
+	
+#Ejercicio 3
+#Cree un programa que intercambie el primer y ultimo elemento 
+# de una lista. Debe funcionar con listas de cualquier tamaño.
+elementos = ["estas", "como", "Hola,"]
+
+if len(elementos) > 1:
+    primer_elemento = elementos[0]
+    ultimo_elemento = elementos[-1]
+    elementos[0] = ultimo_elemento
+    elementos[-1] = primer_elemento
+print(elementos)
+
+#Ejercicio 4
+#Cree un programa que elimine todos los números impares de una lista.
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+i = 0
+while i < len(lista):
+    if lista[i] % 2 != 0:
+        lista.pop(i)
+    else:
+        i += 1
+print(lista)
+
+#Ejercicio 5 
+#Cree un programa que le pida al usuario 10 números, y al final le 
+# muestre todos los números que ingresó, seguido del numero ingresado más alto.
+numeros = []
+for i in range(10):
+    numero = int(input("Ingrese 1 número: "))
+    numeros.append(numero)
+    if i == 0:
+        numero_maximo = numero
+    elif numero > numero_maximo:
+        numero_maximo = numero
+print(numeros)
+print(f"El número más alto fue {numero_maximo}.")
+	
+# ---------------- PRACTICA 02 -----------------------
+#Ejercicio 1 
+informacion = {
+	"Nombre" : "Resort Guanacaste",
+	"Numero de estrellas" : 5,
+	"Habitaciones1" : [
+        {"numero": 1,
+         "Piso" : 2,
+         "Precio por noche": 100000}, 
+
+        {"numero": 1,
+         "Piso" : 2,
+         "Precio por noche": 100000}
+        ]
+}
+for variables, info in informacion.items():
+  print(f'{variables} : {info}')
+
+#Ejercicio 2
+diccionario = {}
+keys = ["Nombre: ", "Apellido: ", "Direccion: "]
+values = ["Cristobal", "Angulo", "Moravia"]
+for index in range(len(keys)):
+        diccionario[keys[index]] = values[index]
+        print(diccionario)
+
+#ejercicio 3
+list_keys = ["Direccion", "Edad"]
+diccionario2 = {"nombre": "Maria", "Apellido": "Lopez", "Direccion": "Coronado", "Edad": 19}
+for key in list_keys:
+    diccionario2.pop(key) 
+print(diccionario2)

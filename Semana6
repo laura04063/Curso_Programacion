@@ -1,0 +1,144 @@
+# ------------------------- EJERCICIO 01 ----------------------------------
+# Cree dos funciones que impriman dos cosas distintas, y haga que la primera llame la segunda.
+def primera_funcion():
+    print ("mi nombre completo es Maria Laura")
+
+
+def segunda_funcion():
+    primera_funcion()
+    print ("tengo 18 años")
+
+segunda_funcion()
+
+# ------------------------- EJERCICIO 02 ----------------------------------
+# Experimente con el concepto de scope:
+    #1. Intente accesar a una variable definida dentro de una función desde afuera.
+def variable_definida():
+    lista= [1,2,3,4,5,6,7]
+    print (lista)
+    
+variable_definida()
+
+    #2.  Intente accesar a una variable global desde una función y cambiar su valor.
+lista=[1,2,3,4,5,6,7]
+def cambiar_lista():
+    lista.append(8)
+    print (lista)
+
+cambiar_lista()
+
+# ------------------------- EJERCICIO 03 ----------------------------------
+# Cree una función que retorne la suma de todos los números de una lista.
+    #1. La función va a tener un parámetro (la lista) y retornar un numero (la suma de todos sus elementos).
+    #2. [4, 6, 2, 29] → 41
+lista=[4,6,2,29]
+def suma_lista(lista):
+    suma = 0 
+    for listas in lista:
+        suma += listas 
+    return suma
+
+sumas = suma_lista(lista)
+print (sumas)
+
+# ------------------------- EJERCICIO 04 ----------------------------------
+# Cree una función que le de la vuelta a un string y lo retorne.
+    #1. Esto ya lo hicimos en iterables.
+    #2. “Hola mundo” → “odnum aloH”
+def vuelta_string():
+    nombre = "Hola mundo"
+    for string in reversed(nombre): 
+        print (string)
+vuelta_string()
+
+# ------------------------- EJERCICIO 05 ----------------------------------
+#5. Cree una función que imprima el numero de mayúsculas y el numero de minúsculas en un string.
+    #1. “I love Nación Sushi” → “There’s 3 upper cases and 13 lower cases”
+
+def numero_mayusculas(letras):
+    mayusculas = 0
+    for  letra in letras:
+        if "A" <= letra <= "Z":
+            mayusculas += 1
+    print ("letras mayuculas: ", mayusculas)
+
+
+def numero_minusculas(letras):
+    minusculas = 0  
+    for  letra in letras:
+        if "a" <= letra <= "z":
+            minusculas += 1
+    print ("letras minusculas: ", minusculas)
+
+frase1= "I love Nación Sushi"
+frase2= "There’s 3 upper cases and 13 lower cases"
+numero_mayusculas(frase1)
+numero_minusculas(frase1)
+numero_mayusculas(frase2)
+numero_minusculas(frase2)
+
+# ------------------------- EJERCICIO 06 ----------------------------------
+#6. Cree una función que acepte un string con palabras separadas por un guión y retorne un string igual pero ordenado alfabéticamente.
+    #1. Hay que convertirlo a lista, ordenarlo, y convertirlo nuevamente a string.
+    #2. “python-variable-funcion-computadora-monitor” → “computadora-funcion-monitor-python-variable”
+def ordenar_palabras(cadena):
+    lista_palabras = []
+    palabra = ""
+ 
+    for caracter in cadena:
+        if caracter == '-':
+            lista_palabras.append(palabra)
+            palabra = ""
+        else:
+            palabra += caracter
+    lista_palabras.append(palabra)
+
+    lista_ordenada = []
+    
+    while lista_palabras:
+        menor_palabra = lista_palabras[0]
+        for palabra in lista_palabras:
+            if palabra < menor_palabra:
+                menor_palabra = palabra
+        lista_ordenada.append(menor_palabra)
+        lista_palabras.remove(menor_palabra)
+
+    cadena_ordenada = ""
+    for i in range(len(lista_ordenada)):
+        cadena_ordenada += lista_ordenada[i]
+        if i < len(lista_ordenada) - 1:
+            cadena_ordenada += '-'
+    
+    return cadena_ordenada
+
+texto1 = "python-variable-funcion-computadora-monitor"
+texto2 = "computadora-funcion-monitor-python-variable"
+resultado1 = ordenar_palabras(texto1)
+resultado2 = ordenar_palabras(texto2)
+print(resultado1) 
+print(resultado2)
+
+# ------------------------- EJERCICIO 07 ----------------------------------
+#7. Cree una función que acepte una lista de números y retorne una lista con los números primos de la misma.
+    #1. [1, 4, 6, 7, 13, 9, 67] → [7, 13, 67]
+    #2. Tip 1: Investigue la logica matematica para averiguar si un numero es primo, y conviertala a codigo. No busque el codigo, eso no ayudaria.
+    #3. *Tip 2: Aquí hay que hacer varias cosas (recorrer la lista, revisar si cada numero es primo, y agregarlo a otra lista). Así que lo mejor es agregar **otra función** para revisar si el numero es primo o no.*
+def es_primo(numero):
+    if numero < 2:
+        return False
+    for n in range(2, numero):
+        if numero % n == 0:
+            return False
+    return True
+
+
+def filtrar_primos(lista):
+    primos = []
+    for numero in lista:
+        if es_primo(numero):
+            primos.append(numero)
+    return primos
+
+lista = [1,4,6,7,13,9,67]
+resultado = filtrar_primos(lista)
+print(resultado)

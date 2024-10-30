@@ -1,0 +1,84 @@
+#-----------Ejercicio 1---------------
+nombre= "Maria"
+apellido="Solano"
+numero_Favorito= str(4)
+print ("mi nombre completo es: ",nombre + apellido)
+print (numero_Favorito + nombre)
+#print (nombre  + int(5))
+primera_lista= [5,6,7,8,9,10,12,23,34]
+segunda_lista=[3,"carros","casas","motos","celulares"]
+print("yo quiero", primera_lista[1],segunda_lista[1])
+print (primera_lista[1]+segunda_lista[0])
+print("yo necesito", numero_Favorito, segunda_lista[2])
+print (float(4.32)+ int(5.34))
+print (True+False)
+
+#-----------Ejercicio 2---------------
+nombre= input ("Ingrese su nombre: ")
+apellido= input ("Ingrese su apellido: ")
+edad= int(input("Ingrese su edad: "))
+if edad <= 2:
+    print(f"{nombre} {apellido} eres un bebe" )
+elif (edad <=10):
+    print(f"{nombre} {apellido} eres un niño" )
+elif (edad <=14):
+    print(f"{nombre} {apellido} eres un preadolescente" )
+elif (edad <= 18):
+    print(f"{nombre} {apellido} eres un adolescente" )
+elif (edad <= 25):
+    print(f"{nombre} {apellido} eres un adulto joven" )
+elif (edad <= 60):
+    print(f"{nombre} {apellido} eres un adulto" )
+else:
+    print(f"{nombre} {apellido} eres un adulto mayor" )
+
+#-----------Ejercicio 3---------------
+numero_secreto= 4
+while(True):
+    print ("Adivina cual es el numero secreto del 1 al 10")
+    numero= int(input("Ingrese un numero: "))
+    if numero == numero_secreto:
+        print ("Adivinaste el numero")
+        break 
+    else:
+        print ("Numero incorrecto, continua intentando")
+        
+#-----------Ejercicio 4---------------
+numero1= int(input("Ingrese un numero: "))
+numero2= int(input("Ingrese un numero: "))
+numero3= int(input("Ingrese un numero: "))
+if(numero1 >= numero2):
+    print("El numero mayor es:", numero1)
+elif (numero1 >= numero3):
+    print ("El numero mayor es: ", numero1)
+elif (numero2 >= numero3):
+    print ("El numero mayor es:", numero2)
+else:
+    print ("El numero mayor es:", numero3)
+
+#-----------Ejercicio 5---------------
+notas_aprovadas= 0 
+notas_desaprovadas= 0 
+promedio_aprovadas= 0
+promedio_desaprovadas=0
+promedio_total=0
+contador=1
+cantidad_notas= int (input("Ingrese la cantidad de notas: "))
+
+for i in range (contador <= cantidad_notas):
+    nota= int(input("Ingrese la nota del estudiante: "))
+    if nota >= 70: 
+        notas_aprovadas= notas_aprovadas + 1 
+        promedio_aprovadas = promedio_aprovadas + nota
+    else:
+        notas_desaprovadas= notas_desaprovadas + 1
+        promedio_desaprovadas= promedio_desaprovadas + nota
+    promedio_total= promedio_total + (nota / cantidad_notas)
+
+promedio_aprovadas= promedio_aprovadas / notas_aprovadas
+promedio_desaprovadas= promedio_desaprovadas / notas_desaprovadas
+print ("la cantidad de aprobadas son: ", notas_aprovadas )
+print ("la cantidad de desaprobadas son: ", notas_desaprovadas )
+print ("el promedio de aprovadas es: ", promedio_aprovadas )
+print ("el promedio de desaprovadas es: ", promedio_desaprovadas )
+print ("el promedio total es: ", promedio_total)
